@@ -1,0 +1,177 @@
+html { 
+    background: url(../images/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: 100px 1fr 1fr 100px;
+
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.grid-container div {
+    background-color: pink;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.grid-container .navbar {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 16px 14px;
+    font-size: 25px;
+    padding-top: 50px;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 6;
+    grid-column-end: 11;
+    font-family: 'Italianno', cursive;
+}
+
+.grid-container .logo {    
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#logo-foto {
+    position: relative;
+}
+
+.grid-container .smaak-dag {
+    text-align: center;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.grid-container .popu-smaak {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+.grid-container .info {
+    grid-column-start: 6;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+.grid-container .bezorg {
+    padding-bottom: 55px;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 11;
+}
+
+.topname {
+    float: left;
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.topname2 {
+    float: left;
+    font-size: 18px;
+    color: slateblue;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.navbar a:hover {
+    color: white;
+  }
+
+
+/* registreren */
+
+#reg-button {
+    border: none;
+    color: pink;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: slateblue;
+    border: 2px solid slateblue;
+    float: right;
+
+}
+
+#reg-button a:hover{
+        color: white;
+      }
+
+
+.container-foto {
+    position: relative;
+    width:fit-content;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+  .image {
+    border-radius: 50%;
+    display: block;
+    height: auto;
+  }
+  
+  .overlay {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: red;
+  }
+  
+  .container-foto:hover .overlay {
+    border-radius: 50%;
+    opacity: 1;
+  }
+  
+  .icon {
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+  }
+  
+  .fa-user:hover {
+    border-radius: 50%;
+    color: #eee;
+  }

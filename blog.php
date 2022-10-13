@@ -32,7 +32,7 @@ session_start()
             <a href="account.php">Account</a>
         </div>
         <div class="popu-smaak">populaire smaken</div>
-        <div class="info"><h1>info</h1>
+        <div class="info"><h1>Blog</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>
         <div class="smaak-dag">smaak van de dag
