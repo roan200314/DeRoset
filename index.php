@@ -1,6 +1,13 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM users ";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $user = mysqli_fetch_assoc($result);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,14 +36,27 @@ session_start()
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
             <a href="winkelmandje.php">Winkelmandje</a>
-            <a href="account.php">Account</a>
+            <a href="account.php?id=<?php echo $user["id"] ?>">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
-        <div class="info"><h1>info</h1>
+        <div class="popu-smaak">populaire smaken
+            <div class="container-fotos">
+                <img src="images/aardbei.jfif" alt="" class="images" style="width:70px">
+                <img src="images/chocola.jfif" alt="" class="images2" style="width:70px">
+                <img src="images/greenTea.jfif" alt="" class="images3" style="width:70px">
+                <div class="overlays">
+                    <p id="p-foto"> aardbei ijsje extra lekker!</p>
+                    <p id="p-foto">Chocolade ijsje extra lekker!</p>
+                    <p id="p-foto">Greantea ijsje extra lekker van smaak en verfrissend!</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="info">
+            <h1 id="kop-tekst">info</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>
         <div class="smaak-dag">smaak van de dag
-            <div class="container-foto"  >
+            <div class="container-foto">
                 <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">

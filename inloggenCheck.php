@@ -17,14 +17,18 @@ if (!empty($user)) {
     if ($user['password'] == $password) {
         $_SESSION["userData"] = $user;
         $_SESSION["wrong_pas"] = false;
+        $_SESSION["user_id"] = $user['id'];
+        // var_dump($_SESSION);die;
         header("Location: index.php");
+
+
         exit();
     } else {
         $_SESSION["wrong_pas"] = true;
         header("Location: inloggen.php");
         exit();
     }
-} else {
+} else {   
     header("Location: inloggen.php");
     exit();
 }

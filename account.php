@@ -1,6 +1,14 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+
+$id = $_SESSION["user_id"];
+$sql = "SELECT * FROM users WHERE id = $id LIMIT 1";
+
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $user = mysqli_fetch_assoc($result);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,39 +42,41 @@ session_start()
         <div class="popu-smaak">populaire smaken</div>
         <div class="info">
             <h1>Account</h1>
-            <?php
-            if (!empty($_SESSION["userData"])) {
-                // print_r($_SESSION);
-                echo "Voornaam : " . $_SESSION['userData']['firstname'];
-                echo "<br>";
-                echo "Achternaam : " . $_SESSION['userData']['lastname'];
-                echo "<br>";
-                echo "email : " . $_SESSION['userData']['email'];
-                echo "<br>";
-                echo "Wachtwoord : " . $_SESSION['userData']['password'];
-                echo "<br>";
-                echo "Geboortedatum : " . $_SESSION['userData']['date_of_birth'];
-                echo "<br>";
-                echo "Telefoonnummer : " . $_SESSION['userData']['phonenumber'];
-                echo "<br>";
-                echo "Adres : " . $_SESSION['userData']['address'];
-                echo "<br>";
-                echo "Postcode : " . $_SESSION['userData']['zipcode'];
-                echo "<br>";
-                echo "Stad : " . $_SESSION['userData']['city'];
-                echo "<br>";
-                echo "<br>"
-            ?>
+            <thead>
 
-                <a href="delete.php?id= <?php echo $_SESSION["userData"]["id"] ?>">Delete</a> <br>
-                <br>
-                <a href="logout.php">Logout </a> <br>
+                <?php
+                if (!empty($_SESSION['userData'])) {
+                    if ($_SESSION["userData"]["role"] == "medewerker" || "gebruiker") {  ?>
+            </thead>
+            <tbody>
+                <tr>
+                    First name: <?php echo $user["firstname"] ?><br>
+                    last name: <?php echo $user["lastname"] ?><br>
+                    email: <?php echo $user["email"] ?><br>
+                    password: <td><?php echo $user["password"] ?><br>
+                        birthdate: <?php echo $user["date_of_birth"] ?><br>
+                        phonenumber:
+                    <td><?php echo $user["phonenumber"] ?><br>
+                        address:
+                    <td><?php echo $user["address"] ?><br>
+                        zipcode:
+                    <td><?php echo $user["zipcode"] ?><br>
+                        city:
+                    <td><?php echo $user["city"] ?><br>
+                        <br>
+                        <a href="delete.php?id=<?php echo $user["id"] ?>" class="btn btn-danger">Delete</a>
+                    </td>
+                    <a href="logout.php">Logout</a></td>
+                    <a href="bewerk-gebruiker.php?id=<?php echo $user["id"] ?>" class="btn btn-warning">Update</a></td>
+                </tr>
+            </tbody>
 
-            <?php } else {
-                echo "U bent uitgelogt, log in om uw informatie te zien.";
-            }  ?>
+    <?php }
+                } else {
+                    echo "U bent nog niet ingelogt, registreer of log in om wat te zien.";
+                }  ?>
 
-           
+
 </body>
 
 </html>

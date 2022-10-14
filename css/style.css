@@ -6,6 +6,10 @@ html {
     background-size: cover;
   }
 
+#kop-tekst{
+    font-size: 18px;
+}
+
 .grid-container {
     width: 100vw;
     height: 100vh;
@@ -27,7 +31,7 @@ html {
 .grid-container div {
     background-color: pink;
     padding: 10px;
-    border: 1px solid black;
+
 }
 
 .grid-container .navbar {
@@ -42,6 +46,7 @@ html {
     grid-column-start: 6;
     grid-column-end: 11;
     font-family: 'Italianno', cursive;
+    border: 1px solid black;
 }
 
 .grid-container .logo {    
@@ -49,10 +54,12 @@ html {
     grid-row-end: 2;
     grid-column-start: 3;
     grid-column-end: 4;
+    border: 1px solid black;
 }
 
 #logo-foto {
     position: relative;
+    border: 1px solid black;
 }
 
 .grid-container .smaak-dag {
@@ -61,18 +68,21 @@ html {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
+    border: 1px solid black;
 }
 .grid-container .popu-smaak {
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 5;
+    border: 1px solid black;
 }
 .grid-container .info {
     grid-column-start: 6;
     grid-column-end: 11;
     grid-row-start: 2;
     grid-row-end: 5;
+    border: 1px solid black;
 }
 
 .grid-container .bezorg {
@@ -81,6 +91,7 @@ html {
     grid-row-end: 7;
     grid-column-start: 3;
     grid-column-end: 11;
+    border: 1px solid black;
 }
 
 .topname {
@@ -123,6 +134,7 @@ html {
 #reg-button a:hover{
         color: white;
       }
+
 
 
 .container-foto {
@@ -170,8 +182,20 @@ html {
     font-family: 'Quicksand', sans-serif;
     color: #000;
   }
-  
-  .fa-user:hover {
-    border-radius: 50%;
-    color: #eee;
+
+  .container-fotos{
+    width: 80px;
+}
+
+#p-foto{
+    float: right;
+    font-size: 12px;
+    
+}
+
+  .login{
+    top: 10px;
+    right: 25px;
+    font-size: 50%;
+    display: inline-block;
   }
