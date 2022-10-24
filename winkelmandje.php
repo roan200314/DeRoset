@@ -1,6 +1,14 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM users ";
+$sql = "SELECT * FROM products ";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $user = mysqli_fetch_assoc($result);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,16 +39,30 @@ session_start()
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
-        <div class="info"><h1>Winkelmandje</h1>
+        <div class="popu-smaak">populaire smaken
+            <div class="container-fotos">
+                <div class="positie">
+                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                </div>
+            </div>
+
+        </div>
+        <div class="info">
+            <h1>Winkelmandje</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>
         <div class="smaak-dag">smaak van de dag
-            <div class="container-foto"  >
+            <div class="container-foto">
                 <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        Pistache ijsje extra lekker!
+                        <?php echo $user["descrip"] ?>
                     </a>
                 </div>
             </div>

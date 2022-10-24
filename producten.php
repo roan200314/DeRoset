@@ -1,7 +1,15 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM products ";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $categorieen = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +38,13 @@ session_start()
             <a href="contact.php">Contact</a>
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
+            <?php
+            if (!empty($_SESSION['userData'])) {
+                if ($_SESSION["userData"]["role"] == "medewerker") {
+            ?>
+                    <a href="producten.php">Producten overzicht </a> <?php
+                                                                    }
+                                                                } ?>
         </div>
         <div class="popu-smaak">populaire smaken
             <div class="container-fotos">
@@ -46,38 +61,44 @@ session_start()
 
         </div>
         <div class="info">
-            <h1>Inloggen</h1>
-
-            <form action="inloggenCheck.php" method="post">
-
-                <div class="container">
-                    <label for="mail"><b>E-Mail</b></label>
-                    <input type="text" placeholder="Enter E-Mail" name="email" required><br>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required><br>
+            <h1 id="kop-tekst">Producten</h1>
 
 
-                    <?php
-                    if (!empty($_SESSION["wrong_pas"])) {
-                        if ($_SESSION["wrong_pas"] == true) {
-                            echo "<p style=color:red>Gegevens kloppen niet</p>";
-                        }
-                    } ?>
+            <table class="table">
+                <thead>
+                    <a href="create-product.php" class="btn btn-success">Nieuw product aanmaken</a>
+                    <tr>
+                        <th>id</th>
+                        <th>Naam</th>
+                        <th>Inkoop kosten</th>
+                        <th>Flavor of week</th>
+                        <th>description</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($categorieen as $categorie) : ?>
+                        <tr>
+                            <td style="font-size: 14px;"><?php echo $categorie["id"] ?></td>
+                            <td style="font-size: 14px;"><?php echo $categorie["name"] ?></td>
+                            <td style="font-size: 14px;"><?php echo $categorie["price_per_kg"] ?></td>
+                            <td style="font-size: 14px;"><?php echo $categorie["is_flavor_of_week"] ?></td>
+                            <td style="font-size: 14px;"><?php echo $categorie["descrip"] ?></td>
+                            <td style="font-size: 14px;"><?php echo $categorie["category"] ?></td>
+                            <td style="font-size: 14px;"><a href="product-delete.php?id=<?php echo $categorie["id"] ?>" class="btn btn-danger">Delete</a></td>
+                            <td style="font-size: 14px;"><a href="product-update.php?id=<?php echo $categorie["id"] ?>" class="btn btn-info">Update</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
 
-
-                    <button type="submit" value="submit">Login</button>
-                </div>
-
-
-            </form>
         </div>
         <div class="smaak-dag">smaak van de dag
             <div class="container-foto">
                 <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                    <?php echo $user["descrip"] ?>
+                        Pistache ijsje extra lekker!
                     </a>
                 </div>
             </div>

@@ -1,6 +1,13 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM users ";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $user = mysqli_fetch_assoc($result);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +37,13 @@ session_start()
             <a href="contact.php">Contact</a>
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
+            <?php
+            if (!empty($_SESSION['userData'])) {
+                if ($_SESSION["userData"]["role"] == "medewerker") {
+            ?>
+                    <a href="producten.php">Producten overzicht </a> <?php
+                                                                    }
+                                                                } ?>
         </div>
         <div class="popu-smaak">populaire smaken
             <div class="container-fotos">
@@ -46,30 +60,42 @@ session_start()
 
         </div>
         <div class="info">
-            <h1>Inloggen</h1>
-
-            <form action="inloggenCheck.php" method="post">
+            <h1 id="kop-tekst">Create Product</h1>
+            <form action="create-product-behandel.php" method="post">
 
                 <div class="container">
-                    <label for="mail"><b>E-Mail</b></label>
-                    <input type="text" placeholder="Enter E-Mail" name="email" required><br>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required><br>
-
-
-                    <?php
-                    if (!empty($_SESSION["wrong_pas"])) {
-                        if ($_SESSION["wrong_pas"] == true) {
-                            echo "<p style=color:red>Gegevens kloppen niet</p>";
-                        }
-                    } ?>
-
-
-                    <button type="submit" value="submit">Login</button>
+                    <label for="name"><b>name</b></label>
+                    <input type="text" placeholder="Enter name" name="name" required>
                 </div>
 
+                <div class="container">
+                    <label for="price_per_kg"><b>price per KG</b></label>
+                    <input type="text" placeholder="Enter price per kg" name="price_per_kg" required>
+                </div>
 
+                <div class="container">
+                    <label for="category"><b>Category</b></label>
+                    <input type="text" placeholder="Enter category" name="category" required>
+                </div>
+                <div class="container">
+                    <label for="descrip"><b>description</b></label>
+                    <input type="text" placeholder="Enter descrip" name="descrip" required>
+                </div>
+                <div class="container">
+                    <label for="text"><b>image source</b></label>
+                    <input type="text" placeholder="Enter image" name="image" required>
+                </div>
+
+                <div class="container">
+                    <label for="category"><b>flavor of the week?</b></label>
+                    <select name="is_flavor_of_week">
+                        <option value="1" name="is_flavor_of_week" required>Yes
+                        <option value="0" name="is_flavor_of_week" required> No
+                    </select>
+                </div>
+                
+
+                <button type="submit">maak!</button>
             </form>
         </div>
         <div class="smaak-dag">smaak van de dag
@@ -77,7 +103,7 @@ session_start()
                 <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                    <?php echo $user["descrip"] ?>
+                        Pistache ijsje extra lekker!
                     </a>
                 </div>
             </div>

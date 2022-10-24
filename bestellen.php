@@ -1,6 +1,14 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM users ";
+$sql = "SELECT * FROM products ";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +39,31 @@ session_start()
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
-        <div class="info"><h1>Bestellen</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
+
+        <div class="popu-smaak">Populaire smaken
+            <div class="container-fotos">
+                <div class="positie">
+                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
+                </div>
+            </div>
+
         </div>
-        <div class="smaak-dag">smaak van de dag
-            <div class="container-foto"  >
-                <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
+        <div class="info">
+            <h1>Smaken</h1>
+            <?php foreach ($users as $user) : ?>
+                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px"><br>
+
+            <?php endforeach; ?>
+        </div>
+        <div class="smaak-dag">Smaak van de dag
+            <div class="container-foto">
+                <img src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         Pistache ijsje extra lekker!

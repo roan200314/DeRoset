@@ -185,12 +185,17 @@ html {
 
   .container-fotos{
     width: 80px;
-}
-
-#p-foto{
-    float: right;
-    font-size: 12px;
+    height: 160px;
+    justify-content: center;
+    padding-left: 45px;
     
+}
+.positie .images{
+    float: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 43px;
 }
 
   .login{

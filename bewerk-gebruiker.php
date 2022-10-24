@@ -49,7 +49,20 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
+        <div class="popu-smaak">populaire smaken
+            <div class="container-fotos">
+                <div class="positie">
+                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                </div>
+            </div>
+
+        </div>
         <div class="info">
             <h1 id="kop-tekst">Bewerk je account</h1>
             <form action="bewerk-gebruiker-verwerk.php" method="post" class='login'>

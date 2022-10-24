@@ -2,13 +2,16 @@
 require "database.php";
 session_start();
 
-$id = $_SESSION["user_id"];
-$sql = "SELECT * FROM users WHERE id = $id LIMIT 1";
-
-
-if ($result = mysqli_query($mysqli, $sql)) {
-    $user = mysqli_fetch_assoc($result);
+if (!empty($_SESSION['userData'])) {
+    if ($_SESSION["userData"]["role"] == "medewerker" || "gebruiker") {
+        $id = $_SESSION["user_id"];
+        $sql = "SELECT * FROM users WHERE id = $id LIMIT 1";
+        if ($result = mysqli_query($mysqli, $sql)) {
+            $user = mysqli_fetch_assoc($result);
+        }
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,20 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
+        <div class="popu-smaak">populaire smaken
+            <div class="container-fotos">
+                <div class="positie">
+                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                </div>
+            </div>
+
+        </div>
         <div class="info">
             <h1>Account</h1>
             <thead>
@@ -73,8 +89,10 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
     <?php }
                 } else {
-                    echo "U bent nog niet ingelogt, registreer of log in om wat te zien.";
-                }  ?>
+                    echo "U bent nog niet ingelogt, registreer of log in om wat te zien."; ?>
+                    <li><a href="registreren.php">Registreren</a></li>
+                    <li><a href="inloggen.php">Inloggen</a></li>
+               <?php }  ?>
 
 
 </body>
