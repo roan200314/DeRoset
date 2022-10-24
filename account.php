@@ -1,6 +1,8 @@
 <?php
 require "database.php";
 session_start();
+$sql = "SELECT * FROM users ";
+$sql = "SELECT * FROM products ";
 
 if (!empty($_SESSION['userData'])) {
     if ($_SESSION["userData"]["role"] == "medewerker" || "gebruiker") {
@@ -11,7 +13,9 @@ if (!empty($_SESSION['userData'])) {
         }
     }
 }
-
+if ($result = mysqli_query($mysqli, $sql)) {
+    $pics = mysqli_fetch_assoc($result);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,21 +46,21 @@ if (!empty($_SESSION['userData'])) {
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken
+        <div class="popu-smaak">Populaire smaken
             <div class="container-fotos">
                 <div class="positie">
-                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
                 </div>
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1>Account</h1>
             <thead>
 
@@ -87,24 +91,24 @@ if (!empty($_SESSION['userData'])) {
                 </tr>
             </tbody>
 
-    <?php }
+        <?php }
                 } else {
                     echo "U bent nog niet ingelogt, registreer of log in om wat te zien."; ?>
-                    <li><a href="registreren.php">Registreren</a></li>
-                    <li><a href="inloggen.php">Inloggen</a></li>
-               <?php }  ?>
+        <li><a href="registreren.php">Registreren</a></li>
+        <li><a href="inloggen.php">Inloggen</a></li>
+    <?php }  ?>
 
 
 </body>
 
 </html>
 </div>
-<div class="smaak-dag">smaak van de dag
+<div class="smaak-dag">Smaak van de dag
     <div class="container-foto">
-        <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
+        <img src="images/<?php echo $pics["image"] ?>" alt="" class="image" style="width:100px">
         <div class="overlay">
             <a href="#" class="icon" title="">
-                Pistache ijsje extra lekker!
+                <?php echo $pics["descrip"] ?>
             </a>
         </div>
     </div>

@@ -54,24 +54,27 @@ if ($result = mysqli_query($mysqli, $sql)) {
             </div>
 
         </div>
-        <div class="info">
-            <h1>Smaken</h1>
-            <?php foreach ($users as $user) : ?>
-                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px"><br>
 
-            <?php endforeach; ?>
+        <div class="main">
+            <h3>Smaken</h1>
+                <div class="info">
+                    <?php foreach ($users as $user) : ?>
+                        <img class="bestel-image" src="images/<?php echo $user["image"] ?>" alt="">
+                    <?php endforeach; ?>
+                </div>
         </div>
-        <div class="smaak-dag">Smaak van de dag
+        <div class="smaak-dag">smaak van de dag
             <div class="container-foto">
-                <img src="images/svdd.png" alt="" class="image" style="width:100px">
+                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        Pistache ijsje extra lekker!
+                        <?php echo $user["descrip"] ?>
                     </a>
                 </div>
             </div>
             <button id="">Bestel</button>
         </div>
+
         <div class="bezorg">bezorgen</div>
     </div>
 </body>

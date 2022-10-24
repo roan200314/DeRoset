@@ -46,21 +46,21 @@ if ($result = mysqli_query($mysqli, $sql)) {
                                                                     }
                                                                 } ?>
         </div>
-        <div class="popu-smaak">populaire smaken
+        <div class="popu-smaak">Populaire smaken
             <div class="container-fotos">
                 <div class="positie">
-                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
                 </div>
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1 id="kop-tekst">Producten</h1>
 
 

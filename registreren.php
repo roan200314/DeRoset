@@ -30,56 +30,68 @@ session_start()
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken</div>
-        <div class="info">
-            <form action="registrerenCheck.php" method="post">
-
-
-
-                <div class="container">
-                    <label for="First name"><b>First name</b></label>
-                    <input type="text" placeholder="First name" name="firstname" required><br>
-
-                    <label for="Last name"><b>Last name</b></label>
-                    <input type="text" placeholder="Last name" name="lastname" required><br>
-
-                    <label for="email"><b>email</b></label>
-                    <input type="text" placeholder="Enter E-mail" name="email" required><br>
-
-                    <label for="Password"><b>password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required><br>
-
-                    <label for="Birthdate"><b>Birthdate</b></label>
-                    <input type="date" placeholder="Birthdate" name="birthdate" required><br>
-
-                    <label for="Phonenumber"><b>phonenumber</b></label>
-                    <input type="phonenumber" placeholder="Enter phonenumber" name="phonenumber" required><br>
-
-                    <label for="Address"><b>Address</b></label>
-                    <input type="text" placeholder="Enter Address" name="address" required><br>
-
-                    <label for="Zipcode"><b>Zipcode</b></label>
-                    <input type="text" placeholder="Enter Zipcode" name="zipcode" required><br>
-
-                    <label for="City"><b>city</b></label>
-                    <input type="text" placeholder="Enter city" name="city" required>
-
-                    <button type="submit" id="reg-button">Registreren</button>
+        <div class="popu-smaak">Populaire smaken
+            <div class="container-fotos">
+                <div class="positie">
+                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
                 </div>
-        </div>
-        <div class="smaak-dag">smaak van de dag
-            <div class="container-foto">
-                <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
-                <div class="overlay">
-                    <a href="#" class="icon" title="">
-                        Pistache ijsje extra lekker!
-                    </a>
+                <div class="positie">
+                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
+                </div>
+                <div class="positie">
+                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
                 </div>
             </div>
-            <button id="">Bestel</button>
         </div>
-        <div class="bezorg">bezorgen</div>
-    </div>
+            <div class="main">
+                <form action="registrerenCheck.php" method="post">
+
+
+
+                    <div class="container">
+                        <label for="First name"><b>First name</b></label>
+                        <input type="text" placeholder="First name" name="firstname" required><br>
+
+                        <label for="Last name"><b>Last name</b></label>
+                        <input type="text" placeholder="Last name" name="lastname" required><br>
+
+                        <label for="email"><b>email</b></label>
+                        <input type="text" placeholder="Enter E-mail" name="email" required><br>
+
+                        <label for="Password"><b>password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" required><br>
+
+                        <label for="Birthdate"><b>Birthdate</b></label>
+                        <input type="date" placeholder="Birthdate" name="birthdate" required><br>
+
+                        <label for="Phonenumber"><b>phonenumber</b></label>
+                        <input type="phonenumber" placeholder="Enter phonenumber" name="phonenumber" required><br>
+
+                        <label for="Address"><b>Address</b></label>
+                        <input type="text" placeholder="Enter Address" name="address" required><br>
+
+                        <label for="Zipcode"><b>Zipcode</b></label>
+                        <input type="text" placeholder="Enter Zipcode" name="zipcode" required><br>
+
+                        <label for="City"><b>city</b></label>
+                        <input type="text" placeholder="Enter city" name="city" required>
+
+                        <button type="submit" id="reg-button">Registreren</button>
+                    </div>
+            </div>
+            <div class="smaak-dag">smaak van de dag
+                <div class="container-foto">
+                    <img src="images/svdd.png" alt="" class="image" style="width:100px">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="">
+                            Pistache ijsje extra lekker!
+                        </a>
+                    </div>
+                </div>
+                <button id="">Bestel</button>
+            </div>
+            <div class="bezorg">bezorgen</div>
+        </div>
 </body>
 <footer>
     <li><a href="registreren.php">Registreren</a></li>

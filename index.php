@@ -60,7 +60,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1 id="kop-tekst">info</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>

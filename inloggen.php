@@ -45,7 +45,7 @@ session_start()
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1>Inloggen</h1>
 
             <form action="inloggenCheck.php" method="post">

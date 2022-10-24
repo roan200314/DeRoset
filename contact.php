@@ -39,27 +39,27 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="winkelmandje.php">Winkelmandje</a>
             <a href="account.php">Account</a>
         </div>
-        <div class="popu-smaak">populaire smaken
+        <div class="popu-smaak">Populaire smaken
             <div class="container-fotos">
                 <div class="positie">
-                    <img src="images/aardbei.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/chocola.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
                 </div>
                 <div class="positie">
-                    <img src="images/greenTea.jfif" alt="" class="images" style="width:68px">
+                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
                 </div>
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1>Contact</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>
-        <div class="smaak-dag">smaak van de dag
+        <div class="smaak-dag">Smaak van de dag
             <div class="container-foto">
-                <img src="images/smaak-dag.jpg" alt="" class="image" style="width:100px">
+                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         <?php echo $user["descrip"] ?>

@@ -59,7 +59,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
             </div>
 
         </div>
-        <div class="info">
+        <div class="main">
             <h1 id="kop-tekst">Create Product</h1>
             <form action="create-product-behandel.php" method="post">
 
