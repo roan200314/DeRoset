@@ -46,7 +46,9 @@ if ($result = mysqli_query($mysqli, $sql)) {
                                                                     }
                                                                 } ?>
         </div>
-        <div class="popu-smaak">populaire smaken
+        <div class="popu-smaak">
+            popu smaak
+            <!-- <h3 class="smaakje">Populaire smaken<h3> -->
             <div class="container-fotos">
                 <div class="positie">
                     <img src="images/aardbei.png" alt="" class="images" style="width:68px">
@@ -64,7 +66,9 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <h1 id="kop-tekst">info</h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
         </div>
-        <div class="smaak-dag">smaak van de dag
+        <div class="smaak-dag">
+            dsadadawa
+            <!-- <h3 class="smaak-tekst">Smaak van de dag</h3> -->
             <div class="container-foto">
                 <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
                 <div class="overlay">
@@ -73,7 +77,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     </a>
                 </div>
             </div>
-            <button id="">Bestel</button>
+            <button id="button">Bestel</button>
         </div>
         <div class="bezorg">bezorgen</div>
     </div>

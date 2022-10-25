@@ -8,7 +8,6 @@ if ($result = mysqli_query($mysqli, $sql)) {
     $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +64,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
         </div>
         <div class="smaak-dag">smaak van de dag
             <div class="container-foto">
-                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
+                <img src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         <?php echo $user["descrip"] ?>

@@ -60,6 +60,8 @@ html {
 #logo-foto {
     position: relative;
     border: 1px solid black;
+    float: right;
+    width: 65px;
 }
 
 .grid-container .smaak-dag {
@@ -164,10 +166,6 @@ html {
   .overlay {
     border-radius: 50%;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     opacity: 0;
     transition: .3s ease;
     background-color: red;
@@ -226,4 +224,56 @@ html {
     flex-direction: row-reverse;
     justify-content: space-around;
     flex-wrap: wrap;
+  }
+
+
+  /* responsive */
+
+  @media only screen and (max-width: 850px) {
+    /* For tablets: */
+    .grid-container {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    .logo {
+      width: fit-content;
+    }
+    .main {width: 96%;  font-size: 25px;};
+    .navbar { width: 100%; font-size: 12px;}
+    body {width: 100%;}
+    .topname2 {
+      font-size: 21px
+    }
+    .topname {
+      font-size: 39px;
+    }
+    #button {
+      align-items: center;
+      font-size: 25px;
+      margin-top: 100px;
+    }
+    .smaakje {
+      font-size: 25px;
+    }
+
+    .smaak-tekst {
+      font-size: 25px;
+    }
+
+    .image {
+      border-radius: 50%;
+      display: block;
+      height: auto;
+    }
+    .overlay{
+      border-radius: 50%;
+      display: block;
+      height: auto;
+    }
+    .icon{
+      border-radius: 50%;
+      display: block;
+      height: auto;
+    }
+
   }
