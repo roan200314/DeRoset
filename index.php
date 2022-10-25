@@ -22,22 +22,28 @@ if ($result = mysqli_query($mysqli, $sql)) {
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
+<header class="text">
+    <div class="topnav">
+        <a href="winkelmandje.php">Winkelmandje</a>
+        <a href="account.php">Account</a>
+        <a href="registreren.php">Registreren</a>
+        <a href="inloggen.php">Inloggen</a>
+    </div>
+</header>
 
 <body>
     <div class="bg"></div>
     <div class="grid-container">
         <div class="logo">
-            <img src="images/logo.webp" id="logo-foto" width="40px" height="50px" alt="">
-            <h1 class="topname">De</h1>
-            <h1 class="topname2">Roset</h1>
+            <img src="images/logo.webp" id="logo-foto" width="20px" height="50px" alt="">
+            <h1 class="topname">De </h1>
+            <h1 class="topname2"> Roset</h1>
         </div>
         <div class="navbar">
             <a href="index.php">Over ons</a>
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="winkelmandje.php">Winkelmandje</a>
-            <a href="account.php">Account</a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -47,30 +53,20 @@ if ($result = mysqli_query($mysqli, $sql)) {
                                                                 } ?>
         </div>
         <div class="popu-smaak">
-            popu smaak
-            <!-- <h3 class="smaakje">Populaire smaken<h3> -->
-            <div class="container-fotos">
-                <div class="positie">
-                    <img src="images/aardbei.png" alt="" class="images" style="width:68px">
-                </div>
-                <div class="positie">
-                    <img src="images/hazelnoot.png" alt="" class="images" style="width:68px">
-                </div>
-                <div class="positie">
-                    <img src="images/cookie.png" alt="" class="images" style="width:68px">
-                </div>
-            </div>
+            <h3>Populaire smaken<h3>
+                    <div class="container-fotos">
+                        <img src="images/aardbei.png">
+                        <div></div>
+                        <img src="images/hazelnoot.png">
+                        <div></div>
+                        <img src="images/cookie.png">
+                    </div>
 
         </div>
-        <div class="main">
-            <h1 id="kop-tekst">info</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
-        </div>
         <div class="smaak-dag">
-            dsadadawa
-            <!-- <h3 class="smaak-tekst">Smaak van de dag</h3> -->
+            <h3>Smaak van de dag</h3>
             <div class="container-foto">
-                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
+                <img src="images/<?php echo $user["image"] ?>" alt="" class="image">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         <?php echo $user["descrip"] ?>
@@ -79,12 +75,19 @@ if ($result = mysqli_query($mysqli, $sql)) {
             </div>
             <button id="button">Bestel</button>
         </div>
-        <div class="bezorg">bezorgen</div>
+        <div class="main">
+            <h1 id="kop-tekst">info</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
+        </div>
+
+        <div class="bezorg">
+            <h3>bezorgen</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+        </div>
     </div>
 </body>
 <footer>
-    <li><a href="registreren.php">Registreren</a></li>
-    <li><a href="inloggen.php">Inloggen</a></li>
+
 </footer>
 
 </html>
