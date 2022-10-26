@@ -37,7 +37,7 @@ html {
 
 .grid-container div {
     background-color: pink;
-    padding: 10px;
+    padding: 8px;
 
 }
 
@@ -130,6 +130,7 @@ html {
   }
 
 
+
 /* registreren */
 
 #reg-button {
@@ -216,6 +217,7 @@ html {
 }
 .container-fotos img {
 width: 60px;
+margin-left: 80px;
 }
 
   .login{
@@ -430,7 +432,7 @@ width: 60px;
 
     .container-fotos img{
       width: 100px;
-      
+      margin-left: 0px;
     }
 
     .topnav{
@@ -444,5 +446,13 @@ width: 60px;
       font-size: 24px;
       margin-bottom: 15px;
       padding-bottom: 15px;
+      }
+
+      .topnav a{
+        padding: 5px;
+      }
+
+      .info img {
+        width: 92px;
       }
   }

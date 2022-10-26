@@ -18,7 +18,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
@@ -28,6 +28,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+
     </div>
 </header>
 
@@ -44,6 +45,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
