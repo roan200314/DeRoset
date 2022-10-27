@@ -19,6 +19,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
+    <script src="javascript/main.js" async></script>
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
@@ -44,7 +45,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -65,8 +66,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
         </div>
         <div class="main">
-            <h1 id="kop-tekst">info</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
+            <h1 id="kop-tekst">Winkelwagen</h1>
+            <div id="items"></div>
         </div>
         <div class="smaak-dag">smaak van de dag
             <div class="container-foto">

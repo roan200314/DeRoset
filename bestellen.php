@@ -71,7 +71,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     <div class="info">
                         <?php foreach ($users as $user) : ?>
                             <button id="foto-bestel">
-                                <img class="bestel-image" src="images/<?php echo $user["image"] ?>" alt="">
+                                <img class="bestel-image" onclick="zetIn('<?php echo $user['name'] ?>')" src="images/<?php echo $user["image"] ?>" alt="">
                             </button>
 
                         <?php endforeach; ?>
@@ -88,7 +88,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="foto-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">
