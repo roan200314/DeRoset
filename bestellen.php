@@ -2,12 +2,18 @@
 require "database.php";
 session_start();
 $sql = "SELECT * FROM users ";
-$sql = "SELECT * FROM products ";
+$sql3 = "SELECT * FROM products ";
+$sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
 
 if ($result = mysqli_query($mysqli, $sql)) {
     $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-
+if ($result3 = mysqli_query($mysqli, $sql3)) {
+    $pica = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+}
+if ($result2 = mysqli_query($mysqli, $sql2)) {
+    $pics = mysqli_fetch_assoc($result2);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +50,6 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -52,6 +57,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
@@ -66,19 +72,26 @@ if ($result = mysqli_query($mysqli, $sql)) {
         </div>
 
         <div class="main">
-            <form method="POST">
-                <h3>Smaken</h1>
-                    <div class="info">
-                        <?php foreach ($users as $user) : ?>
-                            <button id="foto-bestel">
-                                <img id="bestel-image" 
-                                    onclick="zetIn('<?php echo $user['name'] ?>', '<?php echo $user['price_per_kg'] ?>', '<?php echo $user['id'] ?>')" src="images/<?php echo $user["image"] ?>" alt="">
-                                <?php echo $user['price_per_kg'] ?>
-                            </button>
+            <?php
+            if (!empty($_SESSION['userData'])) {
+                if ($_SESSION["userData"]["role"] == "medewerker" || $_SESSION["userData"]["role"] == "gebruiker") {
+            ?>
+                    <form method="POST">
+                        <h3>Smaken</h1>
+                            <div class="info">
+                                <?php foreach ($pica as $pica) : ?>
+                                    <button id="foto-bestel">
+                                        <img id="bestel-image" onclick="zetIn('<?php echo $pica['name'] ?>', '<?php echo $pica['price_per_kg'] ?>', '<?php echo $pica['id'] ?>')" src="images/<?php echo $pica["image"] ?>" alt="">
+                                        <?php echo $pica['price_per_kg'] ?>
+                                    </button>
 
-                        <?php endforeach; ?>
-                    </div>
-            </form>
+                                <?php endforeach; ?>
+                            </div>
+                    <?php }
+            } else {
+                echo "U moet inloggen of registreren om een bestelling te plaatsen.";
+            } ?>
+                    </form>
         </div>
 
         <div class="smaak-dag">smaak van de dag
@@ -86,7 +99,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                 <img id="bestel-image" onclick=zetIn() src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        <?php echo $user["descrip"] ?>
+                        <?php echo $pics["descrip"] ?>
                     </a>
 
                 </div>

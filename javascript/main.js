@@ -4,11 +4,18 @@ var ICE_PRICE = document.getElementById("ijsPrijs");
 const ITEMS = document.getElementById("items");
 const WINKELWAGEN_WEERGAVE = document.getElementById("weergave")
 const VERWIJDER_BUTTON = document.getElementById("buttondelete");
-const BESTEL_BUTTON = document.getElementById("buttonBestel")
+const BESTEL_BUTTON = document.getElementById("buttonBestel");
+const RADIO_PLAATS = document.getElementById("radioPlaats");
+const RADIO_PLAATS2 = document.getElementById("radioPlaats2");
+
+document.getElementById("radioPlaats").style.display = "none";
+document.getElementById("radioPlaats2").style.display = "none";
 
 document.getElementById("buttonBestel").onclick = function (){
     document.getElementById("items").style.display = "none";
     document.getElementById("buttonBestel").style.display = "none";
+    document.getElementById("radioPlaats").style.display = "block";
+    document.getElementById("radioPlaats2").style.display = "block";
 };
 
 

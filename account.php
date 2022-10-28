@@ -2,7 +2,7 @@
 require "database.php";
 session_start();
 $sql = "SELECT * FROM users ";
-$sql2 = "SELECT * FROM products ";
+$sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
 
 if (!empty($_SESSION['userData'])) {
     if ($_SESSION["userData"]["role"] == "medewerker" || "gebruiker") {
@@ -51,7 +51,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -59,6 +58,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
@@ -111,17 +111,17 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
 
 
 
-</div>
-<div class="smaak-dag">Smaak van de dag
-    <div class="container-foto">
-        <img src="images/svdd.png" alt="" class="image" style="width:100px">
-        <div class="overlay">
-            <a href="#" class="icon" title="">
-                <?php echo $pics["descrip"] ?>
-            </a>
         </div>
-    </div>
-    <button id="button">Bestel</button>
+        <div class="smaak-dag">Smaak van de dag
+            <div class="container-foto">
+                <img src="images/svdd.png" alt="" class="image" style="width:100px">
+                <div class="overlay">
+                    <a href="#" class="icon" title="">
+                        <?php echo $pics["descrip"] ?>
+                    </a>
+                </div>
+            </div>
+            <button id="button">Bestel</button>
         </div>
 
         <div class="bezorg">

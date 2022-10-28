@@ -2,15 +2,10 @@
 require "database.php";
 session_start();
 $sql = "SELECT * FROM users ";
-$sql2 = "SELECT * FROM products ";
 
 if ($result = mysqli_query($mysqli, $sql)) {
-    $user = mysqli_fetch_assoc($result);
+    $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-if ($result2 = mysqli_query($mysqli, $sql2)) {
-    $users = mysqli_fetch_assoc($result2);
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +16,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
-    <script src="javascript/main.js" async></script>
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
@@ -31,6 +25,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+
     </div>
 </header>
 
@@ -47,7 +42,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -55,6 +49,8 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
@@ -67,38 +63,29 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </div>
 
         </div>
-        <div class="main">
-            <h1 id="kop-tekst">Winkelwagen</h1>
-            <p id="items"></p>
-            <form id="bestelForm">
-                <p id="radioPlaats2">
-                    <label>Bezorgen of bestellen?</label>
-                    <input type="radio" name="check" value="Bezorgen">Bezorgen
-                    <input type="radio" name="check" value="afhalen">afhalen
-                </p>
-                <p id="radioPlaats">
-                    <label>Waar woont u?</label>
-                    <input type="radio" name="check" value="Castricum"> Castricum
-                    <input type="radio" name="check" value="Uitgeest"> Uitgeest
-                    <input type="radio" name="check" value="Akersloot"> Akersloot
-                </p>
-            </form>
-
-            <button id="buttonBestel">Bestel!</button>
-            <button id="buttondelete">Leeg winkelwagen</button>
-        </div>
-
-        <div class="smaak-dag">smaak van de dag
+        <div class="smaak-dag">
+            <h3>Smaak van de dag</h3>
             <div class="container-foto">
-                <img src="images/<?php echo $users["image"] ?>" alt="" class="image" style="width:100px">
+                <img src="images/<?php echo $user["image"] ?>" alt="" class="image">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        <?php echo $users["descrip"] ?>
+                        <?php echo $user["descrip"] ?>
                     </a>
                 </div>
             </div>
-            <button id="">Bestel</button>
+            <button id="button">Bestel</button>
         </div>
+        <div class="main">
+            <h1 id="kop-tekst">info</h1>
+            <tbody>
+                <?php foreach ($users as $users) : ?>
+                    <tr>
+                        First name: <?php echo $user["firstname"] ?><br>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </div>
+
         <div class="bezorg">
             <h3>bezorgen</h3>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!

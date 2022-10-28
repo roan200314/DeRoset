@@ -54,6 +54,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>

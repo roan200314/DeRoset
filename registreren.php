@@ -44,6 +44,7 @@ session_start()
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="main">
             <form action="registrerenCheck.php" method="post">
