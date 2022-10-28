@@ -2,12 +2,14 @@
 require "database.php";
 session_start();
 $sql = "SELECT * FROM users ";
-$sql = "SELECT * FROM products ";
+$sql2 = "SELECT * FROM products ";
 
 if ($result = mysqli_query($mysqli, $sql)) {
     $user = mysqli_fetch_assoc($result);
 }
-
+if ($result2 = mysqli_query($mysqli, $sql2)) {
+    $users = mysqli_fetch_assoc($result2);
+}
 
 ?>
 <!DOCTYPE html>
@@ -67,25 +69,39 @@ if ($result = mysqli_query($mysqli, $sql)) {
         </div>
         <div class="main">
             <h1 id="kop-tekst">Winkelwagen</h1>
-            <div id="items"></div>
+                <p id="items"></p>
+                <form id="bestelForm">
+                <p>
+                    <label>Waar wilt u zitten</label>
+                    <input type="radio" name="check" value="Castricum"> Castricum
+                     <input type="radio" name="check" value="Uigeest"> Uigeest
+                     <input type="radio" name="check" value="Akersloot"> Akersloot
+                </p>
+
+                </form>
+                <button id="buttonBestel">Bestel!</button>
+            <button id="buttondelete">Leeg winkelwagen</button>
         </div>
+
         <div class="smaak-dag">smaak van de dag
             <div class="container-foto">
-                <img src="images/<?php echo $user["image"] ?>" alt="" class="image" style="width:100px">
+                <img src="images/<?php echo $users["image"] ?>" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        <?php echo $user["descrip"] ?>
+                        <?php echo $users["descrip"] ?>
                     </a>
                 </div>
             </div>
             <button id="">Bestel</button>
         </div>
-        <div class="bezorg">bezorgen</div>
+        <div class="bezorg">
+            <h3>bezorgen</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+        </div>
     </div>
 </body>
 <footer>
-    <li><a href="registreren.php">Registreren</a></li>
-    <li><a href="inloggen.php">Inloggen</a></li>
+
 </footer>
 
 </html>

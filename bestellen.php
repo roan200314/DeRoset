@@ -71,7 +71,9 @@ if ($result = mysqli_query($mysqli, $sql)) {
                     <div class="info">
                         <?php foreach ($users as $user) : ?>
                             <button id="foto-bestel">
-                                <img class="bestel-image" onclick="zetIn('<?php echo $user['name'] ?>')" src="images/<?php echo $user["image"] ?>" alt="">
+                                <img id="bestel-image" 
+                                    onclick="zetIn('<?php echo $user['name'] ?>', '<?php echo $user['price_per_kg'] ?>', '<?php echo $user['id'] ?>')" src="images/<?php echo $user["image"] ?>" alt="">
+                                <?php echo $user['price_per_kg'] ?>
                             </button>
 
                         <?php endforeach; ?>
@@ -81,14 +83,15 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
         <div class="smaak-dag">smaak van de dag
             <div class="container-foto">
-                <img src="images/svdd.png" alt="" class="image" style="width:100px">
+                <img id="bestel-image" onclick=zetIn() src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         <?php echo $user["descrip"] ?>
                     </a>
+
                 </div>
             </div>
-            <button id="foto-bestel">Bestel</button>
+
         </div>
 
         <div class="bezorg">
