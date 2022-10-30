@@ -93,7 +93,7 @@ session_start()
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">

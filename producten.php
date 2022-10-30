@@ -71,17 +71,15 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <h1 id="kop-tekst">Producten</h1>
 
 
-            <table class="table">
+            <table class="main">
                 <thead>
-                    <a href="create-product.php" class="btn btn-success">Nieuw product aanmaken</a>
-                    <a href="gebruikers.php" class="btn btn-success">gebruikers checken</a>
+                    <div class="buttonDiv">
+                    <a href="create-product.php" class="createProduct">Nieuw product aanmaken</a>
+                    <a href="gebruikers.php" class="createProduct">Gebruikers checken</a>
+                    </div>
                     <tr>
                         <th>id</th>
                         <th>Naam</th>
-                        <th>Inkoop kosten</th>
-                        <th>Flavor of week</th>
-                        <th>description</th>
-                        <th>Category</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -89,10 +87,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                         <tr>
                             <td style="font-size: 14px;"><?php echo $categorie["id"] ?></td>
                             <td style="font-size: 14px;"><?php echo $categorie["name"] ?></td>
-                            <td style="font-size: 14px;"><?php echo $categorie["price_per_kg"] ?></td>
-                            <td style="font-size: 14px;"><?php echo $categorie["is_flavor_of_week"] ?></td>
-                            <td style="font-size: 14px;"><?php echo $categorie["descrip"] ?></td>
-                            <td style="font-size: 14px;"><?php echo $categorie["category"] ?></td>
                             <td style="font-size: 14px;"><a href="product-delete.php?id=<?php echo $categorie["id"] ?>" class="btn btn-danger">Delete</a></td>
                             <td style="font-size: 14px;"><a href="product-update.php?id=<?php echo $categorie["id"] ?>" class="btn btn-info">Update</a></td>
                         </tr>
@@ -102,7 +96,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
 
         </div>
         <div class="smaak-dag">
-            <h3>Smaak van de dag</h3>
+            Smaak van de dag
             <div class="container-foto">
                 <img src="images/svdd.png" alt="" class="image">
                 <div class="overlay">
@@ -111,14 +105,16 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
-        <div class="bezorg">bezorgen</div>
+        <div class="bezorg">
+            <h3>bezorgen</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+        </div>
     </div>
 </body>
 <footer>
-    <li><a href="registreren.php">Registreren</a></li>
-    <li><a href="inloggen.php">Inloggen</a></li>
+
 </footer>
 
 </html>

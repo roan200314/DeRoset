@@ -94,9 +94,9 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </form>
         </div>
 
-        <div class="smaak-dag">smaak van de dag
+        <div class="smaak-dag">Smaak van de dag
             <div class="container-foto">
-                <img id="bestel-image" onclick=zetIn() src="images/svdd.png" alt="" class="image" style="width:100px">
+                <img src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
                         <?php echo $pics["descrip"] ?>
@@ -104,7 +104,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
 
                 </div>
             </div>
-
+            <button id="svdd-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">

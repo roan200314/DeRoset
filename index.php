@@ -68,7 +68,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
 
         </div>
         <div class="smaak-dag">
-            <h3>Smaak van de dag</h3>
+            Smaak van de dag
             <div class="container-foto">
                 <img src="images/svdd.png" alt="" class="image">
                 <div class="overlay">
@@ -77,11 +77,13 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
         <div class="main">
             <h1 id="kop-tekst">info</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
+            <div id="loc1">
+            De Roset bestaat inmiddels 25 jaar. Dit komt alleen door de klanten die de ijsjes erg lekker vonden. Zo willen wij graag jullie bedanken voor de kans die jullie ons hebben gegeven en zijn wij deze aankomende week 24/7 open!
+            </div>
         </div>
 
         <div class="bezorg">

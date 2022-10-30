@@ -45,7 +45,6 @@ html {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    padding: 16px 14px;
     font-size: 25px;
     padding-top: 50px;
     grid-row-start: 1;
@@ -232,9 +231,175 @@ margin-left: 80px;
     text-align: center;
   }
 
+  .btn-danger{
+    float: right;
+    padding-right: 45px;
+  }
+
+  .buttonDiv{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
 
   /* bestel css */
+  #svdd-bestel {
+    border: none;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
 
+  #svdd-bestel {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+  }
+  
+  #svdd-bestel:hover {
+    background-color: #e7e7e7;
+  }
+
+  #buttonBestel {
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  #buttonBestel:focus {
+    text-decoration: none;
+  }
+  
+  #buttonBestel:hover {
+    text-decoration: none;
+  }
+  
+  #buttonBestel:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+  }
+  
+  #buttonBestel:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
+
+  #buttonBestel2 {
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  #buttonBestel2:focus {
+    text-decoration: none;
+  }
+  
+  #buttonBestel2:hover {
+    text-decoration: none;
+  }
+  
+  #buttonBestel2:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+  }
+  
+  #buttonBestel2:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
+  
+#buttondelete {
+  background: #e62143;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  word-break: break-word;
+  border: 0;
+}
+
+#buttondelete:active,
+#buttondelete:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+#buttondelete:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
+}
+
+#items{
+  display: flex;
+  
+}
 
 .bestel-image{
     border-radius: 50%;
@@ -280,6 +445,7 @@ margin-left: 80px;
 
     .container-fotos img{
       width: 100px;
+      padding-right: 83px;
     }
 
     .navbar { 
@@ -291,7 +457,8 @@ margin-left: 80px;
     }
 
     .topname2 {
-      font-size: 30px
+      font-size: 27px;
+      display: contents;
     }
     .topname {
       font-size: 30px;
@@ -327,7 +494,7 @@ margin-left: 80px;
       height: auto;
     }
     .navbar a {
-      font-size: 28px;
+      font-size: 20px;
     }
     .container-fotos {
       width: 88px;
@@ -384,6 +551,7 @@ margin-left: 80px;
       font-size: 19px;
       margin-left: 20px;
       margin-top: 19px;
+      display: flex;
     }
     .topname {
       font-size: 25px;
@@ -433,6 +601,7 @@ margin-left: 80px;
     .container-fotos img{
       width: 100px;
       margin-left: 0px;
+      padding-right: 0px;
     }
 
     .topnav{
@@ -456,4 +625,18 @@ margin-left: 80px;
       .info img {
         width: 92px;
       }
+
+      #items {
+        font-size: 15px;
+      }
   }
+
+/* CSS */
+
+
+@media (min-width: 768px) {
+  .button-50 {
+    padding: 12px 50px;
+  }
+}
+

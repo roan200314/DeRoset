@@ -47,14 +47,14 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
-            ?>
+                    ?>
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
@@ -70,18 +70,21 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <div class="main">
             <h1 id="kop-tekst">Winkelwagen</h1>
             <p id="items"></p>
-            <form id="bestelForm">
+            <form id="bestelForm" action="bestelCheck.php" method="post">
                 <p id="radioPlaats2">
                     <label>Bezorgen of bestellen?</label>
-                    <input type="radio" name="check" value="Bezorgen">Bezorgen
-                    <input type="radio" name="check" value="afhalen">afhalen
+                    <input type="radio" id="bezorgingCheck" name="check" value="Bezorgen">Bezorgen
+                    <input type="radio" id="afhalingCheck" name="check" value="afhalen">afhalen
                 </p>
+               <p id="ophalen">Datum ophalen</p> <input type="date" id="birthday1" name="timeOphalen">
+               <p id="bezorgen">Datum bezorgen</p> <input type="date" id="birthday2" name="timeBezorgen">
                 <p id="radioPlaats">
                     <label>Waar woont u?</label>
-                    <input type="radio" name="check" value="Castricum"> Castricum
-                    <input type="radio" name="check" value="Uitgeest"> Uitgeest
-                    <input type="radio" name="check" value="Akersloot"> Akersloot
+                    <input type="radio"  name="check1" value="Castricum"> Castricum
+                    <input type="radio" name="check1" value="Uitgeest"> Uitgeest
+                    <input type="radio" name="check1" value="Akersloot"> Akersloot
                 </p>
+                <button type="submit" id="buttonBestel2">Bestel!</button>
             </form>
 
             <button id="buttonBestel">Bestel!</button>
@@ -97,7 +100,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
         <div class="bezorg">
             <h3>bezorgen</h3>

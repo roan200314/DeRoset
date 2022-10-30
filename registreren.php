@@ -1,6 +1,15 @@
 <?php
 require "database.php";
-session_start()
+session_start();
+$sql = "SELECT * FROM users ";
+$sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
+
+if ($result = mysqli_query($mysqli, $sql)) {
+    $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+if ($result2 = mysqli_query($mysqli, $sql2)) {
+    $pics = mysqli_fetch_assoc($result2);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,11 +107,11 @@ session_start()
                 <img src="images/svdd.png" alt="" class="image" style="width:100px">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        Pistache ijsje extra lekker!
+                        <?php echo $pics["descrip"] ?>
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">

@@ -133,7 +133,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">

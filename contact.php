@@ -53,7 +53,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
-            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>                                                    
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
@@ -79,14 +79,21 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="">Bestel</button>
+            <button id="svdd-bestel">Bestel</button>
         </div>
-        <div class="bezorg">bezorgen</div>
+        <div class="main">
+            <h1 id="kop-tekst">Contact</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
+        </div>
+
+        <div class="bezorg">
+            <h3>bezorgen</h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+        </div>
     </div>
 </body>
 <footer>
-    <li><a href="registreren.php">Registreren</a></li>
-    <li><a href="inloggen.php">Inloggen</a></li>
+
 </footer>
 
 </html>

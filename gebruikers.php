@@ -2,9 +2,13 @@
 require "database.php";
 session_start();
 $sql = "SELECT * FROM users ";
+$sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
 
 if ($result = mysqli_query($mysqli, $sql)) {
     $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+if ($result2 = mysqli_query($mysqli, $sql2)) {
+    $pics = mysqli_fetch_assoc($result2);
 }
 ?>
 <!DOCTYPE html>
@@ -52,6 +56,17 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
             <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
+        <div class="main">
+            <h1 id="kop-tekst">info</h1>
+            <tbody>
+                <?php foreach ($user as $user) : ?>
+                    <tr>
+                    Account name: <?php echo $user["firstname"] ?>
+                    <a href="delete.php?id=<?php echo $user["id"] ?>" class="btn-danger">Delete</a><br>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </div>
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
                     <div class="container-fotos">
@@ -64,26 +79,16 @@ if ($result = mysqli_query($mysqli, $sql)) {
 
         </div>
         <div class="smaak-dag">
-            <h3>Smaak van de dag</h3>
+            Smaak van de dag
             <div class="container-foto">
-                <img src="images/<?php echo $user["image"] ?>" alt="" class="image">
+                <img src="images/svdd.png" alt="" class="image">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        <?php echo $user["descrip"] ?>
+                        <?php echo $pics["descrip"] ?>
                     </a>
                 </div>
             </div>
-            <button id="button">Bestel</button>
-        </div>
-        <div class="main">
-            <h1 id="kop-tekst">info</h1>
-            <tbody>
-                <?php foreach ($users as $users) : ?>
-                    <tr>
-                        First name: <?php echo $user["firstname"] ?><br>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
+            <button id="svdd-bestel">Bestel</button>
         </div>
 
         <div class="bezorg">
