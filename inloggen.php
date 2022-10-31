@@ -44,7 +44,6 @@ session_start()
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -75,7 +74,7 @@ session_start()
                     } ?>
 
 
-                    <button type="submit" value="submit">Login</button>
+                    <button id="buttonBestel"  type="submit" value="submit">Login</button>
                 </div>
 
 
@@ -106,7 +105,7 @@ session_start()
 
         <div class="bezorg">
             <h3>bezorgen</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+            Wij bezorgen in: Castricum, Akersloot en Uitgeest.
         </div>
     </div>
 </body>

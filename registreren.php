@@ -53,7 +53,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -96,7 +95,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     <label for="City"><b>city</b></label>
                     <input type="text" placeholder="Enter city" name="city" required>
 
-                    <button type="submit" id="reg-button">Registreren</button>
+                    <button id="buttonBestel" type="submit" id="reg-button">Registreren</button>
                 </div>
         </div>
         <div class="popu-smaak">

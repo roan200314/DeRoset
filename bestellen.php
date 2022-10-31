@@ -86,6 +86,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             ?>
                     <form method="POST">
                         <h3>Smaken</h1>
+                        Alle smaken worden in 1kg bakken verkocht
                             <div class="info">
                                 <?php foreach ($pica as $pica) : ?>
                                     <button id="foto-bestel">
