@@ -163,7 +163,19 @@ html {
     width: 50%;
 
   }
-  
+ .textContact{
+    display: flex;
+    float: left;
+  }
+
+.fotoContact{
+  background-image: url("../images/vanille.jfif");
+  float: right;
+  height: 167px;
+  width: 50%;
+  background-repeat: no-repeat;
+}
+
   .image {
     border-radius: 50%;
     display: block;
@@ -469,7 +481,7 @@ margin-left: 80px;
     }
 
     .topname2 {
-      font-size: 27px;
+      font-size: 35px;
       display: contents;
     }
     .topname {
@@ -605,6 +617,10 @@ margin-left: 80px;
     }
     .navbar a {
       font-size: 20px;
+    }
+    .navbar {
+      display: flex;
+      flex-direction: column;
     }
     .container-fotos {
       width: 88px;

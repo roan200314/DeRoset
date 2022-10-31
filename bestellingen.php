@@ -44,7 +44,14 @@ if ($result3 = mysqli_query($mysqli, $sql3)) {
         } ?>
     </div>
 </header>
-
+<style>
+.grid-container .main {
+    grid-column-start: 3;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+</style>
 <body>
     <div class="bg"></div>
     <div class="grid-container">
@@ -67,51 +74,30 @@ if ($result3 = mysqli_query($mysqli, $sql3)) {
                                                                 } ?>
             <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
-        <div class="popu-smaak">
-            <h3>Populaire smaken<h3>
-                    <div class="container-fotos">
-                        <img src="images/aardbei.png">
-                        <div></div>
-                        <img src="images/hazelnoot.png">
-                        <div></div>
-                        <img src="images/cookie.png">
-                    </div>
 
-        </div>
-        <div class="smaak-dag">
-            Smaak van de dag
-            <div class="container-foto">
-                <img src="images/svdd.png" alt="" class="image">
-                <div class="overlay">
-                    <a href="#" class="icon" title="">
-                        <?php echo $pics["descrip"] ?>
-                    </a>
-                </div>
-            </div>
-            <button id="svdd-bestel">Bestel</button>
-        </div>
         <div class="main">
             <h1 id="kop-tekst">Bestellingen</h1>
             <div class="loc6">
-            <?php foreach ($order as $order) : ?>
-                    <tr>
-                    user_id: <?php echo $order["user_id"] ?><br>
-                    product_id: <?php echo $order["product_id"] ?><br>
-                    aankomst: <?php echo $order["aankomst"] ?><br>
-                    adress: <?php echo $order["adress"] ?><br>
-                    date: <?php echo $order["date"] ?><br>
-                    is Received: <?php echo $order["isReceived"] ?><br>
-                    <td style="font-size: 14px;"><a href="bestellingDelete.php?id=<?php echo $order["id"] ?>" class="btn btn-danger">Delete</a></td>
-                    <td style="font-size: 14px;"><a href="bestellingBewerk.php?id=<?php echo $order["id"] ?>" class="btn btn-info">Update</a></td><br>
-                </tr>
-                <?php endforeach; ?>
-
+                <?php foreach ($order as $order) : ?>
+                    <tbody>
+                        <tr>
+                            <th>user_id: <?php echo $order["user_id"] ?></th><br>
+                            <th>product_id: <?php echo $order["product_id"] ?></th><br>
+                            <th>aankomst: <?php echo $order["aankomst"] ?></th><br>
+                            <th>adress: <?php echo $order["adress"] ?></th><br>
+                            <th>date: <?php echo $order["date"] ?></th><br>
+                            <th>is Received: <?php echo $order["isReceived"] ?><br>
+                            <td style="font-size: 14px;"><a href="bestellingDelete.php?id=<?php echo $order["id"] ?>" class="btn btn-danger">Delete</a></td>
+                            <td style="font-size: 14px;"><a href="bestellingBewerk.php?id=<?php echo $order["id"] ?>" class="btn btn-info">Update</a></td><br>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
             </div>
-            </div>
-
-
-
         </div>
+
+
+
+    </div>
 
     </div>
 </body>

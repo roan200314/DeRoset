@@ -13,6 +13,7 @@ const BEZORGEN2 = document.getElementById("bezorgen");
 const BEZORGINGCHECK = document.getElementById("bezorgingCheck");
 const AFHALINGCHECK = document.getElementById("afhalingCheck");
 const ICEID = document.getElementById("iceId");
+const SVDD = document.getElementById("svdd-bestel");
 
 
 document.getElementById("radioPlaats").style.display = "none";

@@ -84,7 +84,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="svdd-bestel">Bestel</button>
+            <button id="svdd-bestel" onclick="zetIn('<?php echo $pics['name'] ?>', '<?php echo $pics['price_per_kg'] ?>', '<?php echo $pics['id'] ?>')">Bestel</button>
         </div>
         <div class="main">
             <h1 id="kop-tekst">info</h1>

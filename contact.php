@@ -30,6 +30,14 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -66,10 +74,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </div>
 
         </div>
-        <div class="main">
-            <h1>Contact</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
-        </div>
         <div class="smaak-dag">Smaak van de dag
             <div class="container-foto">
                 <img src="images/svdd.png" alt="" class="image" style="width:100px">
@@ -79,16 +83,21 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="svdd-bestel">Bestel</button>
+            <button id="svdd-bestel" onclick="zetIn('<?php echo $pics['name'] ?>', '<?php echo $pics['price_per_kg'] ?>', '<?php echo $pics['id'] ?>')">Bestel</button>
         </div>
         <div class="main">
             <h1 id="kop-tekst">Contact</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis debitis ipsum atque, culpa deleniti illum cum nostrum ducimus a quo earum magnam, eius quam. Quae?
-        </div>
+            <div class="textContact">
+                Altijd op zoek naar nieuw talent
+                Dynamisch ondernemen betekent dynamisch in de arbeidsmarkt staan. De Roset is daarom regelmatig op zoek naar nieuw talent. Naar vakmensen met liefde voor patisserie, chocolaterie en ambachtelijk ijs naar commerciële mensen die van een uitdaging houden of naar servicegerichte mensen met oog voor de klant.
+            </div>
+            <div class="fotoContact">
 
+            </div>
+        </div>
         <div class="bezorg">
             <h3>bezorgen</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+            Wij bezorgen in: Castricum, Akersloot en Uitgeest.
         </div>
     </div>
 </body>

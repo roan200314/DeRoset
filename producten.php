@@ -31,6 +31,14 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -105,11 +113,11 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </a>
                 </div>
             </div>
-            <button id="svdd-bestel">Bestel</button>
+            <button id="svdd-bestel" onclick="zetIn('<?php echo $pics['name'] ?>', '<?php echo $pics['price_per_kg'] ?>', '<?php echo $pics['id'] ?>')">Bestel</button>
         </div>
         <div class="bezorg">
             <h3>bezorgen</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+            Wij bezorgen in: Castricum, Akersloot en Uitgeest.
         </div>
     </div>
 </body>

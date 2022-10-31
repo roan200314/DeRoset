@@ -4,11 +4,14 @@ session_start();
 $id = $_GET["id"];
 
 $sql = "SELECT * FROM products WHERE id = $id LIMIT 1";
+$sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
 
 if ($result = mysqli_query($mysqli, $sql)) {
     $products = mysqli_fetch_assoc($result);
 }
-
+if ($result2 = mysqli_query($mysqli, $sql2)) {
+    $pics = mysqli_fetch_assoc($result2);
+}
 
 ?>
 
@@ -30,6 +33,14 @@ if ($result = mysqli_query($mysqli, $sql)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -46,7 +57,6 @@ if ($result = mysqli_query($mysqli, $sql)) {
             <a href="bestellen.php">Bestellen</a>
             <a href="blog.php">Blog</a>
             <a href="contact.php">Contact</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php
             if (!empty($_SESSION['userData'])) {
                 if ($_SESSION["userData"]["role"] == "medewerker") {
@@ -114,21 +124,23 @@ if ($result = mysqli_query($mysqli, $sql)) {
     <div class="smaak-dag">
         <h3>Smaak van de dag</h3>
         <div class="container-foto">
-            <img src="images/<?php echo $products["image"] ?>" alt="" class="image">
+            <img src="images/svdd.png" alt="" class="image">
             <div class="overlay">
                 <a href="#" class="icon" title="">
                     <?php echo $products["descrip"] ?>
                 </a>
             </div>
         </div>
-        <button id="svdd-bestel">Bestel</button>
+        <button id="svdd-bestel" onclick="zetIn('<?php echo $pics['name'] ?>', '<?php echo $pics['price_per_kg'] ?>', '<?php echo $pics['id'] ?>')">Bestel</button>
     </div>
-    <div class="bezorg">bezorgen</div>
+    <div class="bezorg">
+        <h3>bezorgen</h3>
+        Wij bezorgen in: Castricum, Akersloot en Uitgeest.
+    </div>
     </div>
 </body>
 <footer>
-    <li><a href="registreren.php">Registreren</a></li>
-    <li><a href="inloggen.php">Inloggen</a></li>
+
 </footer>
 
 </html>

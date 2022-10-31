@@ -20,6 +20,14 @@ session_start()
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -44,7 +52,7 @@ session_start()
                     <a href="producten.php">Producten overzicht </a> <?php
                                                                     }
                                                                 } ?>
-            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>                                                    
+            <a href="winkelmandje.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="main">
             <h1>Inloggen</h1>
@@ -93,7 +101,7 @@ session_start()
                     </a>
                 </div>
             </div>
-            <button id="svdd-bestel">Bestel</button>
+            <button id="svdd-bestel" onclick="zetIn('<?php echo $pics['name'] ?>', '<?php echo $pics['price_per_kg'] ?>', '<?php echo $pics['id'] ?>')">Bestel</button>
         </div>
 
         <div class="bezorg">
