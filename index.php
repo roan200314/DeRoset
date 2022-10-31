@@ -30,7 +30,14 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
-
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -81,14 +88,19 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         </div>
         <div class="main">
             <h1 id="kop-tekst">info</h1>
-            <div id="loc1">
-            De Roset bestaat inmiddels 25 jaar. Dit komt alleen door de klanten die de ijsjes erg lekker vonden. Zo willen wij graag jullie bedanken voor de kans die jullie ons hebben gegeven en zijn wij deze aankomende week 24/7 open!
+            <div class="loc1">
+                De Roset bestaat inmiddels 25 jaar. Dit komt alleen door de klanten die de ijsjes erg lekker vonden. Zo willen wij graag jullie bedanken voor de kans die jullie ons hebben gegeven en zijn wij deze aankomende week 24/7 open!
+                <div class="loc2">
+                </div>
             </div>
+
+
+
         </div>
 
         <div class="bezorg">
             <h3>bezorgen</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+            Wij bezorgen in: Castricum, Akersloot en Uitgeest.
         </div>
     </div>
 </body>

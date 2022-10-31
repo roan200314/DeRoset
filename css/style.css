@@ -202,6 +202,18 @@ html {
     color: #000;
   }
 
+  .loc1{
+    display: flex;
+    float: left;
+  }
+
+  .loc2{
+    background-image: url("../images/vanille.jfif");
+    float: right;
+    height: 167px;
+    width: 220%;
+    background-repeat: no-repeat;
+  }
 
 .container-fotos {
     float: center;
@@ -512,8 +524,13 @@ margin-left: 80px;
       width: 100%;
     }
 
-    
+    .loc1 {
+      font-size: 16px;
+    }
 
+    .loc6 {
+      font-size: 12px;
+    }
     .grid-container .bezorg {
     padding-bottom: 55px;
     grid-row-start: 7;

@@ -1,14 +1,18 @@
 <?php
 require "database.php";
 session_start();
-$sql = "SELECT * FROM users ";
+$sql  = "SELECT * FROM users ";
 $sql2 = "SELECT * FROM products WHERE IS_FLAVOR_OF_WEEK = '1' LIMIT 1";
+$sql3 = "SELECT * FROM orders ";
 
 if ($result = mysqli_query($mysqli, $sql)) {
     $user = mysqli_fetch_assoc($result);
 }
 if ($result2 = mysqli_query($mysqli, $sql2)) {
-    $users = mysqli_fetch_assoc($result2);
+    $pics = mysqli_fetch_assoc($result2);
+}
+if ($result3 = mysqli_query($mysqli, $sql3)) {
+    $order = mysqli_fetch_all($result3, MYSQLI_ASSOC);
 }
 
 ?>
@@ -21,7 +25,6 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
-    <script src="javascript/main.js" async></script>
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
@@ -31,6 +34,14 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <a href="account.php">Account</a>
         <a href="registreren.php">Registreren</a>
         <a href="inloggen.php">Inloggen</a>
+        <?php
+        if (!empty($_SESSION['userData'])) {
+            if ($_SESSION["userData"]["role"] == "medewerker") {
+        ?>
+                <a href="bestellingen.php">bestellingen</a>
+        <?php
+            }
+        } ?>
     </div>
 </header>
 
@@ -67,52 +78,41 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                     </div>
 
         </div>
-        <div class="main">
-            <h1 id="kop-tekst">Winkelwagen</h1>
-        <?php
-        if (!empty($_SESSION['userData'])) {
-                    if ($_SESSION["userData"]["role"] == "medewerker" || "gebruiker") {  ?>
-            <p id="items"></p>
-            <form id="bestelForm" action="bestelCheck.php" method="post">
-                <p id="radioPlaats2">
-                    <label>Bezorgen of afhalen?</label>
-                    <input type="radio" id="bezorgingCheck" name="check" value="Bezorgen">Bezorgen
-                    <input type="radio" id="afhalingCheck" name="check" value="afhalen">afhalen
-                </p>
-                <p id="bezorgen">Datum bezorgen/ afhalen</p> <input type="date" id="birthday2" name="timeBezorgen">
-                <p id="radioPlaats">
-                    <label>Waar woont u?</label>
-                    <input type="radio" name="check1" value="Castricum"> Castricum €15
-                    <input type="radio" name="check1" value="Uitgeest"> Uitgeest €16
-                    <input type="radio" name="check1" value="Akersloot"> Akersloot €18
-                </p>
-                <input type="hidden" id="iceId" name="productid" value="">
-                <button type="submit" id="buttonBestel2">Bestel!</button>
-            </form>
-
-            <button id="buttonBestel">Bestel!</button>
-            <button id="buttondelete">Leeg winkelwagen</button>
-        <?php }
-                } else {
-                    echo "U bent nog niet ingelogt, registreer of log in om wat te zien.";
-                 } ?>
-        </div>
-
-        <div class="smaak-dag">smaak van de dag
+        <div class="smaak-dag">
+            Smaak van de dag
             <div class="container-foto">
-                <img src="images/svdd.png" alt="" class="image" style="width:100px">
+                <img src="images/svdd.png" alt="" class="image">
                 <div class="overlay">
                     <a href="#" class="icon" title="">
-                        <?php echo $users["descrip"] ?>
+                        <?php echo $pics["descrip"] ?>
                     </a>
                 </div>
             </div>
             <button id="svdd-bestel">Bestel</button>
         </div>
-        <div class="bezorg">
-            <h3>bezorgen</h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis!
+        <div class="main">
+            <h1 id="kop-tekst">Bestellingen</h1>
+            <div class="loc6">
+            <?php foreach ($order as $order) : ?>
+                    <tr>
+                    user_id: <?php echo $order["user_id"] ?><br>
+                    product_id: <?php echo $order["product_id"] ?><br>
+                    aankomst: <?php echo $order["aankomst"] ?><br>
+                    adress: <?php echo $order["adress"] ?><br>
+                    date: <?php echo $order["date"] ?><br>
+                    is Received: <?php echo $order["isReceived"] ?><br>
+                    <td style="font-size: 14px;"><a href="bestellingDelete.php?id=<?php echo $order["id"] ?>" class="btn btn-danger">Delete</a></td>
+                    <td style="font-size: 14px;"><a href="bestellingBewerk.php?id=<?php echo $order["id"] ?>" class="btn btn-info">Update</a></td><br>
+                </tr>
+                <?php endforeach; ?>
+
+            </div>
+            </div>
+
+
+
         </div>
+
     </div>
 </body>
 <footer>
