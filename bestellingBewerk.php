@@ -27,6 +27,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/main.js" async></script>
     <title>De Roset</title>
 </head>
 <header class="text">

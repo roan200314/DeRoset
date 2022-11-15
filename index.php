@@ -21,6 +21,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
+    <script src="javascript/main.js" async></script>
     <link rel="stylesheet" href="css/style.css">
     <title>De Roset</title>
 </head>
@@ -46,8 +47,8 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <div class="grid-container">
         <div class="logo">
             <img src="images/logo.webp" id="logo-foto" width="20px" height="50px" alt="">
-            <h1 class="topname">De </h1>
-            <h1 class="topname2"> Roset</h1>
+            <h1 class="topname">De</h1>
+            <h1 class="topname2">Roset</h1>
         </div>
         <div class="navbar">
             <a href="index.php">Over ons</a>
@@ -66,11 +67,11 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
         <div class="popu-smaak">
             <h3>Populaire smaken<h3>
                     <div class="container-fotos">
-                        <img src="images/aardbei.png">
+                        <img src="images/aardbei.png" alt=""> 
                         <div></div>
-                        <img src="images/hazelnoot.png">
+                        <img src="images/hazelnoot.png" alt="">
                         <div></div>
-                        <img src="images/cookie.png">
+                        <img src="images/cookie.png" alt="">
                     </div>
 
         </div>

@@ -90,7 +90,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                             <div class="info">
                                 <?php foreach ($pica as $pica) : ?>
                                     <button id="foto-bestel">
-                                        <img id="bestel-image" onclick="zetIn('<?php echo $pica['name'] ?>', '<?php echo $pica['price_per_kg'] ?>', '<?php echo $pica['id'] ?>')" src="images/<?php echo $pica["image"] ?>" alt="">
+                                        <img id="bestel-image" onclick="zetIn('<?php echo $pica['name'] ?>', '<?php echo $pica['price_per_kg'] ?>', '<?php echo $pica['id'] ?>')" src="images/<?php echo $pica["image"] ?>" alt="images/svdd.png">
                                         <?php echo $pica['price_per_kg'] ?>
                                     </button>
 

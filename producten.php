@@ -23,6 +23,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a333f4247d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/main.js" async></script>
     <title>De Roset</title>
 </head>
 <header class="text">
@@ -82,8 +83,8 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
             <table class="main">
                 <thead>
                     <div class="buttonDiv">
-                    <a href="create-product.php" class="createProduct">Nieuw product aanmaken</a>
-                    <a href="gebruikers.php" class="createProduct">Gebruikers checken</a>
+                        <a href="create-product.php" class="createProduct">Nieuw product aanmaken</a>
+                        <a href="gebruikers.php" class="createProduct">Gebruikers checken</a>
                     </div>
                     <tr>
                         <th>id</th>

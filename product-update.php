@@ -84,7 +84,7 @@ if ($result2 = mysqli_query($mysqli, $sql2)) {
                 </thead>
                 <tbody>
                     <tr>
-                        <form action="categorie-update-behandel.php" method="post">
+                        <form action="producten.php" method="post">
 
                             <label for="id">id</label>
                             <input type="hidden" name="id" value="<?php echo $products["id"] ?>">
